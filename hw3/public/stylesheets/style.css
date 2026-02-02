@@ -1,0 +1,142 @@
+/*
+	CS341 Homework 1 CSS File
+	Author: Megan Ou
+	Version: Jan. 2026
+	CSS style sheet to format Cheesecake Order form. Keep this file in the same
+	folder as the Ou_Megan_HTML_HW1.html so that it can find this file. 
+*/
+
+/* Set background color to green */
+body {
+	background-color: #b5d19f;
+}
+
+/* Change element colors and fonts */
+textarea, button, select {
+	background-color: #dbf2c9;
+	font-family: "Garamond", serif;
+	font-size: 15px;
+	color: #35402d;
+}
+
+input[type="radio"] {
+	accent-color: #78995f;
+}
+
+/* Add border around cheesecake image */
+img {
+	border: 7px solid #78995f;
+}
+
+/* Set certain elements to center align! */
+.center {
+	text-align: center; 
+	margin: auto;
+}
+
+/* Put some space between Quantity and Toppings selection */
+table {
+	border-spacing: 20px 0;
+	color: #35402d;
+
+}
+
+/* Add a specific margin to certain elements so that everything aligns */
+.text, script {
+	margin-left: 20px;
+	color: #35402d;
+
+}
+
+/* Change header font, color, and size */
+h1 {
+	font-family: "Lucida Handwriting", cursive;
+	font-weight: bold;
+	font-size: 50px;
+	color: #35402d;
+} 
+
+h2 {
+	font-family: "Georgia", serif;
+	font-weight: bold;
+	font-size: 30px;
+	text-decoration: underline;
+	color: #35402d;
+}
+
+h3 {
+	font-family: "Georgia", serif;
+	font-weight: bold;
+	font-size: 25px;
+	text-decoration: underline;
+	color: #35402d;
+}
+
+/* Change font style of Order Numbers */
+ul {
+	font-style: oblique;
+}
+
+/* Change font style of labels */
+.label {
+	font-weight: bold;
+	font-size: 15px;
+	font-family: "Georgia", serif;
+	text-decoration: underline;
+}
+
+/* CSS Styling from W3 schools. Keep CSS here so it is easy to distinguish dropdown menu*/
+.dropdown {
+	position: absolute; /* Keeps dropdown options below month text */
+	border: 2px solid #78995f; /* Highlight dropdown */
+
+}
+
+/* Style the dropdown button */
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #c3ddb6;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+/* Selections inside dropdown content */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #78995f
+}
+
+/* Show the dropdown content on hover - Cannot get this to work and I have no clue why*/
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change background color of dropdown button on hover */
+.dropdown:hover .dropbtn {
+	background-color: #356936;
+}
+
+#inline {
+	display: inline;
+}
