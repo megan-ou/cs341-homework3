@@ -1,3 +1,10 @@
+/**
+ * CS341
+ * JavaScript click event handler for Cheesecake Order Form
+ * Author: Megan Ou
+ * Version: Feb. 2026
+ */
+
 orderHandler = function(click) {
     //extract value from user inputs
 	let notes;
