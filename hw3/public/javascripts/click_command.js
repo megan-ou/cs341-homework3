@@ -36,4 +36,16 @@ $(function() {
 
 function selection(month) {
     $(".changemonth").text(month);
+	
+	$.post('/orders',
+		{name: 'get order'},
+		function(data) {
+			//$("#orders").text("Topping: " + data.topping +
+							  //"Quantity" + data.quantity
+			//)
+			//document.getElementById('orders').innerHTML = '<p>hi</p>';
+			alert("this works")
+		},
+		"json"
+	);
 }
