@@ -5,8 +5,8 @@ var router = express.Router();
 //hardcode json data
 const orderList = [
     { topping: 'plain', quantity: 1 },
-    { topping: 'chocolate', quantity: 2 },
-    { topping: 'cherry', quantity: 3 }
+    { topping: 'cherry', quantity: 2 },
+    { topping: 'chocolate', quantity: 3 }
 ];
 
 /* GET order page. */
@@ -16,9 +16,9 @@ router.get('/', function(req, res, next) {
 });
 
 //Handle post request
-app.post('/orders', (req, res) => {
+router.post('/', function(req, res, next) {
     //Send the order list
     res.json(orderList);
-})
+});
 
 module.exports = router;

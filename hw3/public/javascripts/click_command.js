@@ -37,15 +37,13 @@ $(function() {
 function selection(month) {
     $(".changemonth").text(month);
 	
-	$.post('/orders',
-		{name: 'get order'},
-		function(data) {
-			//$("#orders").text("Topping: " + data.topping +
-							  //"Quantity" + data.quantity
-			//)
-			//document.getElementById('orders').innerHTML = '<p>hi</p>';
-			alert("this works")
+	//Client-side post handling, use full url to access orders.js
+	$.post('http://localhost:3000/orders',
+		function(data, status) {
+			//Hard reset text fields with the json data
+			document.getElementById('plain').textContent = "Plain: " + data[0].quantity;
+			document.getElementById('cherry').textContent = "Cherry: " + data[1].quantity;
+			document.getElementById('chocolate').textContent = "Chocolate: " + data[2].quantity;
 		},
-		"json"
 	);
 }
