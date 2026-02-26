@@ -1,3 +1,11 @@
+/**
+ * CS341
+ * JavaScript orders route for Cheesecake Order Form
+ * Author: Megan Ou
+ * Version: Feb. 2026
+ */
+
+var dbms = require("./dbms.js");
 var express = require('express');
 var app = express();
 var router = express.Router();
@@ -12,13 +20,31 @@ const orderList = [
 /* GET order page. */
 router.get('/', function(req, res, next) {
     //Create JSON list to be displayed.
-    res.json(orderList);
+    //res.json(orderList);
+    dbms.dbquery('SELECT * FROM orders;', function(err,results){
+        if (err) {
+            res.send(err);
+        } 
+        else {
+            res.json({topping: 'bullshit'});
+            //res.json({records: results});
+        }
+    })
 });
 
 //Handle post request
 router.post('/', function(req, res, next) {
-    //Send the order list
-    res.json(orderList);
+    /** 
+    dbms.dbquery('SELECT * FROM orders;', function(err,results){
+        if (err) {
+            res.send('Bad bad things happened');
+        } 
+        else {
+            res.json({topping: 'bullshit'});
+            //res.json({records: results});
+        }
+    })
+    */
 });
 
 module.exports = router;

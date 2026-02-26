@@ -41,9 +41,11 @@ function selection(month) {
 	$.post('http://localhost:3000/orders',
 		function(data, status) {
 			//Hard reset text fields with the json data
-			document.getElementById('plain').textContent = "Plain: " + data[0].quantity;
-			document.getElementById('cherry').textContent = "Cherry: " + data[1].quantity;
-			document.getElementById('chocolate').textContent = "Chocolate: " + data[2].quantity;
+			//document.getElementById('plain').textContent = "Plain: " + data[0].quantity;
+			//document.getElementById('cherry').textContent = "Cherry: " + data[1].quantity;
+			//document.getElementById('chocolate').textContent = "Chocolate: " + data[2].quantity;
+
+			document.getElementById('chocolate').textContent = String(data)
 		},
 	);
 }
