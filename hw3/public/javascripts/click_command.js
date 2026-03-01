@@ -34,19 +34,29 @@ $(function() {
     $("#order_button").click(orderHandler);
 });
 
-function selection(month) {
+async function selection(month) {
     $(".changemonth").text(month);
 
 	//change month to numbers here
 	
 	//Client-side post handling, use full url to access orders.js
-	$.post('http://localhost:3000/orders', { month: month },
-		function(data, status) {
-			//Hard reset text fields with the json data
-			//document.getElementById('plain').textContent = "Plain: " + data[0].quantity;
-			//document.getElementById('cherry').textContent = "Cherry: " + data[1].quantity;
-			//document.getElementById('chocolate').textContent = "Chocolate: " + data[2].quantity;
-			//document.getElementById('chocolate').textContent = String(data)
-		},
-	);
+	try {
+        const response = await fetch('projects', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+			month : month
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.text();
+    
+        document.body.innerHTML = data;
+
+    } catch (error) {
+        //console.error('Error fetching data:', error);
+    }
 }
