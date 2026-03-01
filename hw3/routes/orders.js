@@ -18,14 +18,14 @@ const orderList = [
 ];
 
 /* GET order page. */
-router.get('/', function(req, res, next) {
+router.get('/', async(req, res, next) => {
     var query = "SELECT * FROM orders"
     dbms.dbquery(query, function(err,results){
         if (err) {
             res.send('Bad bad things happened');
         } 
         else {
-            res.json({records: results});
+            res.render('orders', {records: results});
         }
     })
 });

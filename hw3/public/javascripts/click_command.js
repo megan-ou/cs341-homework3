@@ -45,8 +45,8 @@ async function selection(month) {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
-            },
-			month : month
+            }
+			//month : month
         });
 
         if (!response.ok) {
