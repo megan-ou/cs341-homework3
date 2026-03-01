@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
             res.send('Bad bad things happened');
         } 
         else {
-            res.json('orders',{records: results});
+            res.json({records: results});
         }
     })
 });
