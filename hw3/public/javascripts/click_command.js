@@ -36,16 +36,17 @@ $(function() {
 
 function selection(month) {
     $(".changemonth").text(month);
+
+	//change month to numbers here
 	
 	//Client-side post handling, use full url to access orders.js
-	$.post('http://localhost:3000/orders',
+	$.post('http://localhost:3000/orders', { month: month },
 		function(data, status) {
 			//Hard reset text fields with the json data
 			//document.getElementById('plain').textContent = "Plain: " + data[0].quantity;
 			//document.getElementById('cherry').textContent = "Cherry: " + data[1].quantity;
 			//document.getElementById('chocolate').textContent = "Chocolate: " + data[2].quantity;
-
-			document.getElementById('chocolate').textContent = String(data)
+			//document.getElementById('chocolate').textContent = String(data)
 		},
 	);
 }

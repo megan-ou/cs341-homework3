@@ -1,0 +1,113 @@
+<!--
+	Author: Megan Ou
+	Version: Feb. 2026
+	Simple HTML Cheesecake Order Form + JQuery
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Cheesecake Order Form</title>
+	<link rel="stylesheet" href="./stylesheets/style.css">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+    <script src="./javascripts/click_command.js"></script>
+</head>
+
+<body>
+
+	<div class="center">
+		<h1>Cheesecake Order Form</h1>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" alt="cheesecake_image" width="250" height="250">
+	</div>
+	
+	<!-- 
+		I'm not 100% what indentation standard is, so every time I went down another 	
+		level in the html tags, I indented. Used a table so that the Quantity dropdown 			and Topping radio buttons could be displayed side by side. I opted not to use
+		the <p> take for "Quantity" and "Toppings" because I felt that putting them in 
+		their own cells within the table would allow them to best align with the 
+		corresponding selections.
+	-->
+	<div id="hideable">
+		<table>
+			<tr>		
+				<td class="label">Quantity</td>
+				<td class="label">Toppings</td>
+			</tr>
+			<tr>
+				<td>
+					<select id="quantity">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+
+					</select>
+				</td>
+				<td>
+					<input type="radio" id="Plain" name="topping" value="Plain">
+					<label for="Plain">Plain</label><br>
+					<input type="radio" id="Cherry" name="topping" value="Cherry">
+					<label for="Cherry">Cherry</label><br>
+					<input type="radio" id="Chocolate" name="topping" value="Chocolate">
+					<label for="Chocolate">Chocolate</label><br>
+				</td>
+			</tr>
+		</table><br>
+
+		<div class="text">
+			<label class="label" for="notes">Notes:</label><br><br>
+
+			<textarea id="notes" name="notes" rows="5" cols="40" placeholder="Enter any special instructions here."></textarea><br><br>
+			<button type="button" id="order_button">Order</button><br><br>
+		</div>
+	</div>
+
+	<!--
+		Homework #2 work starts here
+
+		Dropdown menu code is copied and altered from https://www.w3schools.com/css/css_dropdowns.asp 
+
+		Selection code inspired by Clint Sizemore. (thank you clint)
+	-->
+
+	<h3 id="inline">Orders for: &nbsp;</h3>
+	<div class="dropdown" id="inline">
+		<button class="changemonth" id="drop"><h3 id="inline">Choose Month</h3></button>
+		<div class="dropdown-content">
+			<a href="#" onclick='selection("Jan")'>Jan</a>
+			<a href="#" onclick='selection("Feb")'>Feb</a>
+			<a href="#" onclick='selection("Mar")'>Mar</a>
+			<a href="#" onclick='selection("Apr")'>Apr</a>
+			<a href="#" onclick='selection("May")'>May</a>
+			<a href="#" onclick='selection("Jun")'>Jun</a>
+			<a href="#" onclick='selection("Jul")'>Jul</a>
+			<a href="#" onclick='selection("Aug")'>Aug</a>
+			<a href="#" onclick='selection("Sep")'>Sep</a>
+			<a href="#" onclick='selection("Oct")'>Oct</a>
+			<a href="#" onclick='selection("Nov")'>Nov</a>
+			<a href="#" onclick='selection("Dec")'>Dec</a>
+  		</div>
+	</div>
+
+	<table>
+        <thead>
+            <tr>
+                <th>T_ID</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% records.forEach(function(record) { %>
+            <tr>
+              <td><%= record.t_id %></td>
+              <td><%= record.quantity %></td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

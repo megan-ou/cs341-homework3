@@ -21,30 +21,32 @@ const orderList = [
 router.get('/', function(req, res, next) {
     //Create JSON list to be displayed.
     //res.json(orderList);
+    /** 
     dbms.dbquery('SELECT * FROM orders;', function(err,results){
         if (err) {
             res.send(err);
         } 
         else {
-            res.json({topping: 'bullshit'});
-            //res.json({records: results});
+            res.json({records: results});
         }
     })
+    */
 });
 
 //Handle post request
 router.post('/', function(req, res, next) {
-    /** 
-    dbms.dbquery('SELECT * FROM orders;', function(err,results){
+    //change month into a number
+    //test
+    var query = "SELECT * FROM orders"
+    //var query = "SELECT * FROM orders WHERE month = " + month;
+    dbms.dbquery(query, function(err,results){
         if (err) {
             res.send('Bad bad things happened');
         } 
         else {
-            res.json({topping: 'bullshit'});
-            //res.json({records: results});
+            res.render('orders',{records: results});
         }
     })
-    */
 });
 
 module.exports = router;
