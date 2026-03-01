@@ -19,18 +19,15 @@ const orderList = [
 
 /* GET order page. */
 router.get('/', function(req, res, next) {
-    //Create JSON list to be displayed.
-    //res.json(orderList);
-    /** 
-    dbms.dbquery('SELECT * FROM orders;', function(err,results){
+    var query = "SELECT * FROM orders"
+    dbms.dbquery(query, function(err,results){
         if (err) {
-            res.send(err);
+            res.send('Bad bad things happened');
         } 
         else {
-            res.json({records: results});
+            res.json('orders',{records: results});
         }
     })
-    */
 });
 
 //Handle post request
