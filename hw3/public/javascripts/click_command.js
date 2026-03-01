@@ -41,7 +41,7 @@ async function selection(month) {
 	
 	//Client-side post handling, use full url to access orders.js
 	try {
-        const response = await fetch('projects', {
+        const response = await fetch('orders', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
