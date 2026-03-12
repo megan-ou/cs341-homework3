@@ -32,16 +32,14 @@ router.get('/', async(req, res, next) => {
 
 //Handle post request
 router.post('/', function(req, res, next) {
-    //change month into a number
-    //test
-    var query = "SELECT * FROM orders"
-    //var query = "SELECT * FROM orders WHERE month = " + month;
-    dbms.dbquery(query, function(err,results){
+    var query = "SELECT month, SUM(quantity) AS total_quantity FROM orders WHERE month = " + month +
+        " GROUP BY month"
+    dbms.dbquery(query, function(err,rows){
         if (err) {
             res.send('Bad bad things happened');
         } 
         else {
-            res.render('orders',{records: results});
+            res.render('orders',{records: rows});
         }
     })
 });
