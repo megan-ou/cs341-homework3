@@ -34,38 +34,13 @@ $(function() {
     $("#order_button").click(orderHandler);
 });
 
-async function selection(month) {
-    $(".changemonth").text(month);
-
-	//change month into a number for the query
-    var month_num = -1;
-
-    if (month = "Jan") {
-        month_num = 1;
-    } else if (month = "Feb") {
-        month_num = 2;
-    } else if (month = "Mar") {
-        month_num = 3;
-    } else if (month = "Apr") {
-        month_num = 4;
-    } else if (month = "May") {
-        month_num = 5;
-    } else if (month = "Jun") {
-        month_num = 6;
-    } else if (month = "Jul") {
-        month_num = 7;
-    } else if (month = "Aug") {
-        month_num = 8;
-    } else if (month = "Sep") {
-        month_num = 9;
-    } else if (month = "Oct") {
-        month_num = 10;
-    } else if (month = "Nov") {
-        month_num = 11;
-    } else if (month = "Dec") {
-        month_num = 12;
-    }
+async function selection(month1) {
+    $(".changemonth").text(month1);
 	
+	var my_month = {month : month1};
+
+	var data = JSON.stringify(my_month);
+
 	//Client-side post handling, use full url to access orders.js
 	try {
         const response = await fetch('orders', {
@@ -73,7 +48,7 @@ async function selection(month) {
             headers: {
             'Content-Type': 'application/json'
             },
-			month : month_num
+			body : { data }
         });
 
         if (!response.ok) {
