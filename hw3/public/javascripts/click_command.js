@@ -27,7 +27,53 @@ orderHandler = function(click) {
 		$("body").append("<p>Order Quantity: " + quantity + "</p>")
 		$("body").append("<p>Order Topping: " + toppings + "</p>")
 		$("body").append("<p>Order Notes: " + notes + "</p>")
+
+		//send the information in a post request, separated this into another function because it 
+		// needs to be async.
+		new_order(quantity, toppings, notes);
 	}
+}
+
+async function new_order(quantity, toppings, notes) {
+	//Convert topping into a number for t_id
+	var t_id = -1;
+
+	if (toppings == "Plain") {
+		t_id = 1
+	} else if (toppings == "Vegan") {
+		t_id = 2;
+	} else if (toppings == "Chocolate") {
+		t_id = 3;
+	} else if (toppings == "Cherry") {
+		t_id = 4;
+	}
+
+	//Collect all of the user input information and issue a post request
+	var my_order = {quantity : quantity, toppings: t_id, notes: notes};
+	var jsonBody = JSON.stringify(my_order);
+
+	console.log(jsonBody);
+
+	//Client-side post handling, use full url to access orders.js
+	try {
+        const response = await fetch('new_order', {
+            method: 'POST',
+            headers: {
+            	'Content-Type': 'application/json'
+        	},
+			body : jsonBody 
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.text();
+    
+        document.body.innerHTML = data;
+
+    	} catch (error) {
+        	//console.error('Error fetching data:', error);
+    	}
 }
 
 $(function() {

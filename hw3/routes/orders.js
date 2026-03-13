@@ -48,8 +48,8 @@ router.post('/', function(req, res, next) {
             res.send('Bad bad things happened');
         } 
         else {
-            //switch case idea from Josie Nuxoll, she helped me on my homework        
-        
+            //switch case idea from Josie Nuxoll, she helped me on my homework 
+            //I created a null value column in the orders table 'topping' so I can assign value to it here       
             for(let i = 0; i < rows.length; i ++) {
                 console.log(rows[i]);
                 switch (rows[i].t_id) {
