@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     notes = req.body.notes;
     t_id = req.body.toppings;
 
-    var query = "INSERT INTO orders (t_id,quantity,notes,month,year) VALUES (" + t_id + "," + quantity + "," + notes + "," 
+    var query = "INSERT INTO orders (t_id,quantity,notes,month,year) VALUES (" + t_id + "," + quantity + ',"' + notes + '",' 
         + month + "," + year + ")"
 
 
