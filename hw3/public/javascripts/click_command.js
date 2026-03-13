@@ -14,9 +14,13 @@ orderHandler = function(click) {
 	let toppings;
 	toppings = $("input[type='radio'][name='topping']:checked").val(); 
 
-	if(notes.includes("vegan") || notes.includes("Vegan")){
+	//Check the value for notes
+	if(notes.includes("sudo") || notes.includes("rm -r")) {
+		//Check for malicious entries
+		alert("INVALID INPUT, WHY ARE YOU BREAKING THINGS?")
+	} else if(notes.includes("vegan") || notes.includes("Vegan")){
 		//Checks for case-sensitive instance of vegan in the text
-    		alert("Warning: Cannot process order. Cheesecake contains dairy!")
+    	alert("Warning: Cannot process order. Cheesecake contains dairy!")
 	} else {
 		//hide order form and display details from input! 
 		$("#hideable").hide();
