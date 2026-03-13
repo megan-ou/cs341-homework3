@@ -34,12 +34,13 @@ $(function() {
     $("#order_button").click(orderHandler);
 });
 
-async function selection(month1) {
-    $(".changemonth").text(month1);
+async function selection(month_str, month_int) {
+    $(".changemonth").text(month_str);
 	
-	var my_month = {month : month1};
+	var my_month = {month : month_int};
+	var jsonBody = JSON.stringify(my_month);
 
-	var data = JSON.stringify(my_month);
+	console.log(jsonBody);
 
 	//Client-side post handling, use full url to access orders.js
 	try {
@@ -48,7 +49,7 @@ async function selection(month1) {
             headers: {
             'Content-Type': 'application/json'
             },
-			body : { data }
+			body : jsonBody 
         });
 
         if (!response.ok) {

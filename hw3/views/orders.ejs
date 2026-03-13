@@ -79,32 +79,32 @@
 	<div class="dropdown" id="inline">
 		<button class="changemonth" id="drop"><h3 id="inline">Choose Month</h3></button>
 		<div class="dropdown-content">
-			<a href="#" onclick='selection("Jan")'>Jan</a>
-			<a href="#" onclick='selection("Feb")'>Feb</a>
-			<a href="#" onclick='selection("Mar")'>Mar</a>
-			<a href="#" onclick='selection("Apr")'>Apr</a>
-			<a href="#" onclick='selection("May")'>May</a>
-			<a href="#" onclick='selection("Jun")'>Jun</a>
-			<a href="#" onclick='selection("Jul")'>Jul</a>
-			<a href="#" onclick='selection("Aug")'>Aug</a>
-			<a href="#" onclick='selection("Sep")'>Sep</a>
-			<a href="#" onclick='selection("Oct")'>Oct</a>
-			<a href="#" onclick='selection("Nov")'>Nov</a>
-			<a href="#" onclick='selection("Dec")'>Dec</a>
+			<a href="#" onclick='selection("Jan", 1)'>Jan</a>
+			<a href="#" onclick='selection("Feb", 2)'>Feb</a>
+			<a href="#" onclick='selection("Mar", 3)'>Mar</a>
+			<a href="#" onclick='selection("Apr", 4)'>Apr</a>
+			<a href="#" onclick='selection("May", 5)'>May</a>
+			<a href="#" onclick='selection("Jun", 6)'>Jun</a>
+			<a href="#" onclick='selection("Jul", 7)'>Jul</a>
+			<a href="#" onclick='selection("Aug", 8)'>Aug</a>
+			<a href="#" onclick='selection("Sep", 9)'>Sep</a>
+			<a href="#" onclick='selection("Oct", 10)'>Oct</a>
+			<a href="#" onclick='selection("Nov", 11)'>Nov</a>
+			<a href="#" onclick='selection("Dec", 12)'>Dec</a>
   		</div>
 	</div>
 
 	<table>
         <thead>
             <tr>
-                <th>Month</th>
+                <th>Topping</th>
                 <th>Quantity</th>
             </tr>
         </thead>
         <tbody>
           <% records.forEach(function(record) { %>
             <tr>
-              <td><%= record.month %></td>
+              <td><%= record.topping %></td>
               <td><%= record.total_quantity %></td>
             </tr>
         <% }); %>

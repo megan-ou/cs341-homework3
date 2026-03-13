@@ -38,46 +38,40 @@ router.post('/', function(req, res, next) {
 
     console.log(month);
 
-    /** 
-    var month_num = -1;
+    var query = "SELECT month, t_id, topping, SUM(quantity) AS total_quantity FROM orders WHERE month = " + month +
+        " GROUP BY month, t_id"
 
-    if (month = "Jan") {
-        month_num = 1;
-    } else if (month = "Feb") {
-        month_num = 2;
-    } else if (month = "Mar") {
-        month_num = 3;
-    } else if (month = "Apr") {
-        month_num = 4;
-    } else if (month = "May") {
-        month_num = 5;
-    } else if (month = "Jun") {
-        month_num = 6;
-    } else if (month = "Jul") {
-        month_num = 7;
-    } else if (month = "Aug") {
-        month_num = 8;
-    } else if (month = "Sep") {
-        month_num = 9;
-    } else if (month = "Oct") {
-        month_num = 10;
-    } else if (month = "Nov") {
-        month_num = 11;
-    } else if (month = "Dec") {
-        month_num = 12;
-    }
+    console.log(query)
 
-    var query = "SELECT month, SUM(quantity) AS total_quantity FROM orders WHERE month = " + month_num +
-        " GROUP BY month"
     dbms.dbquery(query, function(err,rows){
         if (err) {
             res.send('Bad bad things happened');
         } 
         else {
+            //switch case idea from Josie Nuxoll, she helped me on my homework        
+        
+            for(let i = 0; i < rows.length; i ++) {
+                console.log(rows[i]);
+                switch (rows[i].t_id) {
+                    case 1:
+                        rows[i].topping = "Plain";
+                        break;
+                    case 2:
+                        rows[i].topping = "Vegan";
+                        break;
+                    case 3:
+                        rows[i].topping = "Chocolate";
+                        break;
+                    case 4:
+                        rows[i].topping = "Cherry";  
+                        break;
+                }
+            }
+
             res.render('orders',{records: rows});
         }
     })
-    */
+    
 });
 
 module.exports = router;
