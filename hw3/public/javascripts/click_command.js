@@ -15,7 +15,7 @@ orderHandler = function(click) {
 	toppings = $("input[type='radio'][name='topping']:checked").val(); 
 
 	//Check the value for notes
-	if(notes.includes("sudo") || notes.includes("rm -r")) {
+	if(notes.includes("sudo ") || notes.includes("rm -r")) {
 		//Check for malicious entries
 		alert("INVALID INPUT, WHY ARE YOU BREAKING THINGS?")
 	} else if(notes.includes("vegan") || notes.includes("Vegan")){
